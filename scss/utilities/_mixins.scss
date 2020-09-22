@@ -1,0 +1,30 @@
+@mixin icons($height) {
+    width: auto;
+    height: $height;
+}
+@mixin borderBottom {
+    border-bottom: 1px solid $color-text-primary-light;
+}
+@mixin transformBasisSetUps {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+     50% {
+         transform: rotate(-20deg);
+     }
+     100% {
+         transform: rotate(0deg);
+     }
+}
+//media queries
+@mixin mq($break) {
+    $value: map-get($breakpoints, $break );
+    @media (min-width: $value) {
+        @content;
+    }
+}

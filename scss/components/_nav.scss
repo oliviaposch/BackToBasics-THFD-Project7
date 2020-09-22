@@ -1,0 +1,26 @@
+.main-nav{
+    ul{
+        display: flex;
+        align-content: center;
+        justify-content: space-evenly;
+        @include mq('md'){
+            flex-direction: column;
+        }
+
+        li{
+            text-align: center;
+            padding: 0.5em 0;
+            margin: 1.2em 0;
+            opacity: .5;
+            transition: opacity 0.5s;
+            &:hover,
+            &:active{
+                opacity: 1;
+                box-shadow: inset 8px 0 0 -5px #97f15f;
+            }
+           
+          }
+    }
+     
+    
+}

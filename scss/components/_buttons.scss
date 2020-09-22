@@ -1,0 +1,15 @@
+.btn{
+    border-radius: $box-radius;
+    border: 0;
+    padding: 16px;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    font-weight: $font-weight-700;
+    &:focus{
+        outline-color:transparent
+    }
+}
+.btn, .close, .open, .icon-bell{
+    cursor: pointer; 
+}

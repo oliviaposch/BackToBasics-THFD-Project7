@@ -1,0 +1,39 @@
+img{
+    max-width: 100%;
+    height: auto;
+}
+.social-media-icons{
+    background: $color-purple-light;
+    padding: 19px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 0 15px;
+    display: none;
+    &.facebook{
+        padding:15px 20px 12px 15px
+    }
+    &.twitter{
+        padding: 21px 17px 16px 17px;
+    }
+    @include mq('lg'){
+        display: block;
+    }
+} 
+
+.icon-bell{
+    @include transformBasisSetUps;
+    transition: .5 ease-out;
+    width: 35px;
+    @include mq('md'){
+        width: 20px;
+        @include icons(22px);
+    }
+    &:hover{
+        stroke: $color-light-green;
+        animation: shake .4s ease-out forwards;
+    }
+}
+.nav-icons{
+    @include icons(32px);
+}

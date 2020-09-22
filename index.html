@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CSS Grid Layout</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div id="sub-header">
+                <div class="logo"><b>Your</b>App&trade;</div>
+                <div class="bell-notifications">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="icon-bell">
+                        <path d="M24 18v-8c0-5.5-4.5-10-10-10S4 4.5 4 10v8l-4 8h9.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H28l-4-8zM14 28c-1.3 0-2.4-.8-2.8-2h5.6c-.4 1.2-1.5 2-2.8 2zM3 24l3-6v-8c0-4.4 3.6-8 8-8s8 3.6 8 8v8l3 6H3z" fill="#fff"/>
+                    </svg>
+                    <ul class="alert-messages">
+                        <span>x</span>
+                        <li>Alert 1</li>
+                        <li>Alert 2</li>
+                        <li>Alert 3</li>
+                    </ul>
+                </div>
+                <div class="sign-on-user">
+                    <div>
+                        <img src="images/member-1.jpg">
+                        
+                    </div>
+                    <p>Josh Sullivan</p>
+                </div>
+            </div>
+            <header class="main-nav" style="background: #5a5488;">
+                <nav>
+                    <ul>
+                        <li>
+                            <object type="image/svg+xml" data="svg/icon-dashboard.svg" class="icon-dashboard nav-icons">
+                            </object>
+                        </li>
+                        <li>
+                            <object type="image/svg+xml" data="svg/icon-members.svg" class="icon-members nav-icons">
+                            </object>
+                        </li>
+                        <li>
+                            <object type="image/svg+xml" data="svg/icon-visits.svg" class="icon-visits nav-icons">
+                            </object>
+                        </li>
+                        <li>
+                            <object type="image/svg+xml" data="svg/icon-settings.svg" class="icon-settings nav-icons">
+                            </object>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <article class="content">
+                    <section class="content-header">
+                        <div>
+                            <h1>Dashboard</h1> 
+         
+                         </div>
+                         <div class="search">
+                             <input type="search" name="search" id="search" placeholder="search">
+                         </div>
+                    </section>
+                    <div class="alert">
+                        <p><b>Alert</b>  Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut</p>
+                        <p class="close">x</p>
+                    </div>
+                    <section class="statistics">
+                        <div class="traffic-hart-container">
+                            <h2>Traffic</h2>
+                            <ul class="traffic-nav">
+                                <li>hourly</li>
+                                <li>daily</li>
+                                <li>weekly</li>
+                                <li>monthly</li>
+                            </ul>
+                            <div>
+                                <canvas id="trafficChart"></canvas>
+                            </div>
+                            
+                        </div>
+                        <div class="daily-hart-container">
+                            <h2>Daily Traffic</h2>
+                            <div>
+                                <canvas id="dailyChart"></canvas>
+                            </div> 
+                        </div>
+                        <div class="mobile-user-hart-container">
+                            <h2>Mobile Users</h2> 
+                            <div>
+                                <canvas id="mobileUserChart"></canvas>
+                            </div>
+                        </div>
+    
+                    </section>
+                    <section class="social-media">
+                        <div>
+                            <h2>Social Stats</h2>
+                        </div>
+                        
+                        <div>
+                            <div class="social-box">
+                            <div class="social-media-icons twitter">
+                                <object type="image/svg+xml" data="svg/icon-twitter.svg" class="icon-twitter">
+                                </object>
+                            </div>
+                            <p>
+                                <span>Twitter</span><br>
+                                10,345
+                            </p>
+                            
+                        </div>
+                        <div class="social-box">
+                            <div class="social-media-icons facebook">
+                                <object type="image/svg+xml" data="svg/icon-facebook.svg" class="icon-twitter">
+                                </object>
+                            </div>
+                            <p>
+                                <span>Facebook</span><br>
+                                8,739
+                            </p>
+                        </div>
+                        <div class="social-box">
+                            <div class="social-media-icons">
+                                <object type="image/svg+xml" data="svg/icon-google-plus.svg" class="icon-twitter">
+                                </object>
+                            </div>
+                            <p>
+                                <span>Google+</span><br>
+                                2,530
+                            </p>
+                        </div>
+                        </div>
+                        
+                    </section>
+                    <section class="user-activity">
+                        <div id="new-members-section">
+                            <h2>New Members</h2>
+                        </div>
+                        <div id="recent-activities-section">
+                            <h2>Recent Activity</h2>
+                        </div>
+                        <div>
+                            <h2>Message User</h2>
+                            <form id="kontaktForm" action="index.html" method="POST">
+                                <!-- autocomplete function / simulate send message & show confirmation msg. -->
+                                <div id="searchBox">
+                                    <input type="search" id="search_user" name="search_user" value="" placeholder="User Name">
+                                    <ul id="searchUserList" class="search-user-list">
+                                        
+                                    </ul>
+                                </div>
+                                
+                                <textarea type="textarea" name="message" id="message" cols="30" rows="10" placeholder="Messaege User"></textarea>
+                                <p id="contactForm-msg" class=""></p>
+                                <button class="btn" type="submit">Send</button>
+                            </form>
+                        </div>
+                        <div>
+                            <h2>Settings</h2>
+                            <form id="settingsForm" action="index.html" method="POST">
+                                <label class=" mailSettings switch-light switch-ios">
+                                    <input type="checkbox">
+                                    <p>Send Email notifications</p>
+                                    <span>
+                                        <span>Off</span>
+                                        <span>On</span>
+                                        <a></a>
+                                      </span>
+                                </label>
+                                <label class="profilSettings switch-light switch-ios">
+                                    <input type="checkbox">
+                                    <p>Set Profile to Public</p>
+                                    <span>
+                                        <span>Off</span>
+                                        <span>On</span>
+                                        <a></a>
+                                      </span>
+                                </label>
+                                <!-- dinamic API timezone-->
+                                <select name="timezone" id="time">
+                                    <option value="null">Select Timezone</option>
+                                    <option value="USA">USA</option>
+                                    <option value="Switzerland">Switzerland</option>
+                                </select>
+                                <button class="btn" type="submit" onClick="save()">save</button>
+                                <button class="btn" type="cancel">cancel</button>
+                            </form>
+    
+                        </div>
+    
+                    </section>
+                </article>
+            </main>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="js/members.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/chrats.js"></script>
+    </body>
+</html>

@@ -1,0 +1,144 @@
+form{
+    padding: 25px 0;
+}
+
+input, 
+textarea,
+select,
+.search-user-list
+{
+    border: 1px solid $color-text-primary-light;
+    border-radius: $box-radius;
+    width: 100%;
+    @include mq('md'){
+        width: auto;
+    }
+}
+input::placeholder,
+textarea::placeholder {
+    font-size: $font-size-base;
+    @include mq('md'){
+        font-size: $font-size-small;
+    }
+}
+input[type="search"], 
+textarea[type="textarea"],
+select{
+    background: $color-grey-light;
+    padding: 16px;
+    @include mq('md'){
+        padding: 10px 17px;
+    }
+
+    &:focus{
+        outline-color: $color-purple-light;
+    }
+} 
+
+.btn{
+    &[type="submit"]{
+        background-color: $color-purple-light;
+    } 
+    &[type="cancel"]{
+        background-color: $color-text-primary-light;
+    }
+}
+#contactForm-msg {
+    padding: .7em;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-radius: $box-radius;
+    &.error{
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    &.success{
+        color: #155724;
+        background: #d4edda;
+        border-color: #c3e6cb;
+    }
+   
+    
+   
+}
+#kontaktForm {
+    .btn[type="submit"]{
+    width: 100%;
+    }
+}
+#settingsForm {
+    .btn{
+        &[type="submit"],
+        &[type="cancel"] {
+        width: 100%;
+        @include mq('lg'){
+            width: 45%; 
+        }
+        &:first-of-type{
+            margin-bottom: 25px;
+            @include mq('lg'){
+                margin-right: 9%;
+                margin-bottom: 0;
+            }
+        }
+        }
+    }
+}
+#searchBox{
+    position: relative;
+    .search-user-list {
+        position: absolute;
+        top: 40px;
+        background: $color-white;
+        width: 100%;
+        margin: 0;
+        height: 150px;
+        overflow: auto;
+        display: none;
+        opacity: 0;
+        transition: opacity .4 ease-in;
+        li {
+            padding: .5em 17px;
+            &:first-of-type{
+                padding-top: 1em;
+            }
+            &:hover{
+                    background: $color-grey-light;
+                    cursor: pointer;
+            }
+        }
+    }
+    
+}
+.switch-light {
+    margin-bottom: 30px;
+}
+.switch-ios.switch-light input:checked ~ span {
+    border-color: $color-purple-light;
+    box-shadow: inset 0 0 0 30px $color-purple-light;
+}
+.switch-light.switch-ios p {
+    position: absolute;
+    line-height: 30px;
+    left: 0;
+    vertical-align: middle;
+}
+.switch-ios.switch-light > span{
+    width: 89px;
+    margin-left: 190px;
+}
+.switch-ios.switch-light > span span {
+    text-transform: uppercase;
+}
+.switch-ios.switch-light input:checked ~ span a {
+    border-color: $color-purple-light;
+    &:focus{
+        outline: none;
+        outline-color: none;
+        outline-style: auto;
+        outline-width: 0;
+    
+    }
+
+}

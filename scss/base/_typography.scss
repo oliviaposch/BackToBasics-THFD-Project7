@@ -1,0 +1,84 @@
+//base Styles
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary;
+}
+h1, .h1, .logo{
+    // font-size: $font-size-extra-large;
+   //@include mq('md'){
+        font-size: $font-size-large;
+    //}
+}
+h2, .h2{
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    font-weight: $font-weight-regular;
+}
+.sign-on-user{
+    font-size: $font-size-large;
+    color: $color-white;
+    @include mq('md'){
+        font-size: $font-size-small;
+    }
+}
+b, .bold{
+    font-weight: $font-weight-bold;
+}
+//SVGs
+path{
+    fill: $color-white !important; 
+}
+//BASE STYLES
+#sub-header{
+    background: $color-purple-light;
+    .logo, ul li{
+        color: $color-white;
+        font-weight: $font-weight-light;
+    }
+}
+.social-media{
+    & > div{
+        p {
+            font-size: 30px;
+            font-weight: $font-weight-light;
+            margin: 0;
+            text-align: center;
+            span {
+                font-size: $font-size-large;
+                font-weight: $font-weight-700;
+                color: $color-purple-light;
+            }
+            @include mq('lg'){
+                text-align: left;
+                height: 90px;
+                font-size: 34px;
+                span {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+    }
+}
+.user-activity{
+    p{
+        font-size: $font-size-base;
+        @include mq('md'){
+            font-size: $font-size-small;
+        }
+        
+    }
+}
+*::placeholder, select{
+    font-size: $font-size-small;
+    line-height: 1.6;
+    color: $color-text-primary-light;
+}
+
+
+

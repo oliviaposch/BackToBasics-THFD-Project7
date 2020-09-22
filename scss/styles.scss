@@ -1,0 +1,14 @@
+/* --------------------------
+  Partial Imports
+--------------------------- */
+* {
+  box-sizing: border-box;
+}
+//Utilities
+@import 'utilities/index';
+
+//Base Styles
+@import 'base/index';
+
+//component Styles
+@import 'components/index';
