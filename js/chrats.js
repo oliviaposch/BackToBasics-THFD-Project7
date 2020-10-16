@@ -20,70 +20,11 @@ const trafficLabelData = {//weekly, monthly, daily, Hourly, monthly
     }
 }
 
-// add eventListener to get the name from traffic navigation
-//EventListener to replace the Parameter from Functions: 
-// ticksMaxNumber, dataLabel, dataSets which I use to display Data in myLineChart 
-function getNavTraffic(){
-
-    const trafficNav = document.querySelector('.traffic-nav');
-    const trafficNavChild = trafficNav.children;
-    //console.log(trafficNav.children.length);
-    for (let i = 0; i < trafficNavChild.length; i++) {
-        const navChild = trafficNavChild[i];
-        //console.log(navChild);
-        let childNav = 'daily';
-        navChild.addEventListener('click', e => {
-            let childNav = e.target.textContent;
-            console.log(childNav);
-        })
-        
-    }
-}
-//getNavTraffic();
-
-// find the the highest number in datasets
-function ticksMaxNumber(labelElm){
-    for (let key in trafficLabelData) {
-        if (labelElm == key){
-            const datasetsArr =  trafficLabelData[key].datasets;
-            let largestNumber = 0;
-            for (let index = 0; index < datasetsArr.length; index++) {
-                const datasetsNum = datasetsArr[index];
-                if(datasetsNum > largestNumber){
-                    largestNumber = datasetsNum;
-                }
-            }
-            //console.log(largestNumber);
-            return largestNumber;
-        }
-    }
-}
-
-//Looping the trafficLabelData Object to show key -> label
-function dataLabel(label){
-    for (let key in trafficLabelData) {
-        if (label == key ){
-                return trafficLabelData[key].label;
-       }
-    }
-}
-//console.log(dataLabel('daily'));
-
-//Looping the trafficLabelData Object to show key -> datasets
-function dataSets(datasetsName){
-    for (let key in trafficLabelData) {
-        if (datasetsName == key){
-            return trafficLabelData[key].datasets;
-        }
-    }
-}
-//console.log(dataSets('daily'));
-
 // myLineChart Data
 const trafficData = {
-    labels: dataLabel('daily'),
+    labels: ['10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
     datasets: [{
-        data: dataSets('daily'),
+        data: [3, 12, 40, 25, 10],
         backgroundColor: 'rgba(115, 119, 191, 0.3)',
         borderWidth: 1,
         borderColor: 'rgba(115, 119, 191, 1)',
@@ -92,12 +33,14 @@ const trafficData = {
         pointRadius: 6,
         pointHoverRadius: 6,
         lineTension: 0,
-        spanGaps:false,
+        // spanGaps:false,
         
     }], 
 }
 // myLineChart Options
 const trafficOptions = {
+    aspectRatio: 2.5,
+    
     legend: {
         display: false
     },
@@ -105,21 +48,12 @@ const trafficOptions = {
         yAxes: [{
             ticks: {
                 beginAtZero: true
-            },
-            gridLines: {
-            display: true,
-            color: "rgb(209, 209, 209)"
-            },
-            ticks: { // show just every then numbers
-                max: getNavTraffic(),
-                min: 0,
-                
             }
         }]
     },
     
 }
-
+//output - Traffic chart
 const trafficElement = document.getElementById('trafficChart');
 const myLineChart = new Chart(trafficElement, {
     type: 'line',
@@ -127,7 +61,23 @@ const myLineChart = new Chart(trafficElement, {
     options: trafficOptions
 });
 
-
+// add eventListener to traffic navigation 
+function getNavTraffic(){
+    const trafficNav = document.querySelector('.traffic-nav');
+    const trafficNavChild = trafficNav.children;
+    //console.log(trafficNav.children.length);
+    
+        const navChild = trafficNavChild[i];
+        navChild.addEventListener('click', e => {
+            let childNav = e.target.textContent;
+            // compare trafficLabelData
+            // if (childNav === )
+            // console.log(childNav);
+        })
+        
+    
+}
+//getNavTraffic();
 
 /* ============================================= */
 /*     Daily Graphyc                             */

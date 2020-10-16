@@ -407,11 +407,13 @@ ul{
   position: relative;
   & > div{
     display: block;
+    width: 92vw;
   }
 }
 .mobile-user-hart-container{
   & > div{
     display: block;
+    width: 92vw;
   }
 }
 .traffic-hart-container {
@@ -447,7 +449,7 @@ ul{
   }
   & > div{
     display: block;
-    width: 100%;
+    width: 92vw;
   }
 }
   @media (min-width: 768px) {
