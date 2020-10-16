@@ -1,12 +1,17 @@
 .main-nav{
     ul{
         display: flex;
+        flex-direction: row;
         align-content: center;
         justify-content: space-evenly;
+        margin: 0;
         @include mq('md'){
             flex-direction: column;
+            
         }
-
+       /*  @include mq('lg'){
+        }
+ */
         li{
             text-align: center;
             padding: 0.5em 0;
@@ -19,7 +24,7 @@
                 box-shadow: inset 8px 0 0 -5px #97f15f;
             }
            
-          }
+        }
     }
      
     
