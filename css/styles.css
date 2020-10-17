@@ -740,7 +740,7 @@ ul {
       cursor: pointer; }
       .traffic-hart-container .traffic-nav li:last-of-type {
         margin-right: 0; }
-      .traffic-hart-container .traffic-nav li:hover {
+      .traffic-hart-container .traffic-nav li:hover, .traffic-hart-container .traffic-nav li.active {
         color: #fff;
         background: #80ca8e;
         border-radius: 20px; }

@@ -1,10 +1,11 @@
 /* ============================================= */
 /*     Traffic                            */
 /* ============================================= */
+
 const trafficLabelData = {//weekly, monthly, daily, Hourly, monthly
     hourly: {
         label: ['10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
-        data: [3, 12, 40, 25, 10],
+        datasets: [3, 12, 40, 25, 10, 7, 35, 18, 30, 18, 10],
     },
     daily: {
         label: ['wed', 'thu', 'fri', 'sat', 'sun', 'mon', 'tue', 'wed', 'wed', 'thu', 'fri', 'sat' ],
@@ -12,19 +13,19 @@ const trafficLabelData = {//weekly, monthly, daily, Hourly, monthly
     },
     weekly: {
         label: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-        datasets: [500, 2000, 800, 1500, 2300, 100]
+        datasets: [500, 2000, 800, 1500, 2300, 100, 1200, 600, 200, 400, 900]
     },
     monthly: {
         label: ['January', 'February', 'March', 'April',  'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [300, 1000, 800, 1500, 1400, 100]
+        datasets: [300, 1000, 800, 1500, 1400, 100, 600, 1100, 500, 200, 150]
     }
 }
 
 // myLineChart Data
 const trafficData = {
-    labels: ['10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+    labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
     datasets: [{
-        data: [3, 12, 40, 25, 10],
+        data: [500, 2000, 800, 1500, 2300, 100, 1200, 600, 200, 400, 900],
         backgroundColor: 'rgba(115, 119, 191, 0.3)',
         borderWidth: 1,
         borderColor: 'rgba(115, 119, 191, 1)',
@@ -53,7 +54,7 @@ const trafficOptions = {
     },
     
 }
-//output - Traffic chart
+// Display Traffic chart
 const trafficElement = document.getElementById('trafficChart');
 const myLineChart = new Chart(trafficElement, {
     type: 'line',
@@ -61,23 +62,41 @@ const myLineChart = new Chart(trafficElement, {
     options: trafficOptions
 });
 
-// add eventListener to traffic navigation 
-function getNavTraffic(){
-    const trafficNav = document.querySelector('.traffic-nav');
-    const trafficNavChild = trafficNav.children;
-    //console.log(trafficNav.children.length);
-    
-        const navChild = trafficNavChild[i];
-        navChild.addEventListener('click', e => {
-            let childNav = e.target.textContent;
-            // compare trafficLabelData
-            // if (childNav === )
-            // console.log(childNav);
-        })
-        
-    
+//Function to update traffic chart Data
+function updateData(dataSets, labelSets){
+    myLineChart.data.datasets[0].data = dataSets;
+    myLineChart.data.labels = labelSets;
+    myLineChart.update();
 }
-//getNavTraffic();
+// add eventListener to traffic navigation 
+const trafficNav = document.querySelector('.traffic-nav');
+const trafficNavChild = trafficNav.children; 
+
+trafficNav.addEventListener('click', e => {
+    const navSelected = e.target;
+    //add active class to currently displayed navigation
+    if(navSelected.tagName === 'LI'){
+        for (let index = 0; index < trafficNavChild.length; index++) {
+            const element = trafficNavChild[index];
+            element.classList.remove('active');
+        }
+        navSelected.classList += 'active' 
+    }
+    //update Traffic Chart if match to the currently active navigation
+    if(navSelected.innerText === 'hourly'){
+        updateData(trafficLabelData.hourly.datasets, trafficLabelData.hourly.label);
+    }
+    if(navSelected.innerText === 'daily'){
+        updateData(trafficLabelData.daily.datasets, trafficLabelData.daily.label);
+    }
+    if(navSelected.innerText === 'weekly'){
+        updateData(trafficLabelData.weekly.datasets, trafficLabelData.weekly.label);
+    }
+    if(navSelected.innerText === 'monthly'){
+        updateData(trafficLabelData.monthly.datasets, trafficLabelData.monthly.label);
+    }     
+})
+
 
 /* ============================================= */
 /*     Daily Graphyc                             */
@@ -113,14 +132,15 @@ const dailyOptions =  {
        
     }
     
-    
 };
+//display Daily Chart
 var dailyElement = document.getElementById('dailyChart');
 var dailyChart = new Chart(dailyElement, {
     type: 'bar',
     data: dailyData,
     options: dailyOptions
 });
+
 
 /* ============================================= */
 /*      Mobile Users Graphyc                     */
@@ -135,9 +155,11 @@ const mobileUserData = {
 };
 const mobileUserOptions =  {
     legend: {
-        display: true,
-        responsive: true,
-        position: 'right'
+        position: 'right',
+        labels: {
+            boxWidth: 20,
+            fontSize:18
+        }
     },
 };
 var mobileUserElement = document.getElementById('mobileUserChart');
