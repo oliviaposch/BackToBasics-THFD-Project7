@@ -2,7 +2,7 @@
  * https://www.chartjs.org/
  * https://d3js.org/
  * https://ghinda.net/css-toggle-switch/
- */
+*/
 
 const newMembersNamesHtml = document.getElementsByClassName('new-member');
 const recentActivitiesHtml = document.getElementsByClassName('recent-activity');
@@ -92,7 +92,7 @@ alertMsgBtn.addEventListener("click", e => {
 })
 
 /* ============================================= */
-/* Extra Credit - notifications dropdown Menu         */
+/* Extra Credit - notifications dropdown Menu    */
 /* ============================================= */
 
 //current height from ul list 

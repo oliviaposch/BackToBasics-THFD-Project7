@@ -9,11 +9,14 @@ select,
 {
     border: 1px solid $color-text-primary-light;
     border-radius: $box-radius;
-    width: 100%;
-    @include mq('md'){
+    width: 100%; 
+} 
+@include mq('md'){
+    input[type="search"]{
         width: auto;
     }
 }
+
 input::placeholder,
 textarea::placeholder {
     font-size: $font-size-base;
@@ -22,6 +25,7 @@ textarea::placeholder {
     }
 }
 input[type="search"], 
+input[type="text"], 
 textarea[type="textarea"],
 select{
     background: $color-grey-light;
