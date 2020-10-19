@@ -142,26 +142,36 @@ for (let i = 0; i < newMembers.length; i++) {
 
 //keyup eventListener
 searchUserInput.addEventListener("keyup", event => {
-    //insert data LI Elem. in input search field
-    userListElements.style.display = 'block';
-    userListElements.style.opacity = '1';
+    //insert LI Elem. in input search field
+    if(searchUserInput.value.length > 0){
+    
+        userListElements.style.display = 'block';
+        userListElements.style.opacity = '1';
 
-    for (let index = 0; index < userListElements.children.length; index++) {
-        const elemLI = userListElements.children[index];
-        //get attr. data-caption from LI elem.
-        if ( elemLI.getAttribute('data-caption').toLowerCase().indexOf(searchUserInput.value.toLowerCase()) < 0 ) {
-            elemLI.style.display = 'none';
-        } else {
-            elemLI.style.display = 'block';
-            //bei aauswählen Namen in Inputfeld | zeigen  Liste ausblenden! 
-            elemLI.addEventListener('click', e => {
-                searchUserInput.value = e.target.innerText;
-                userListElements.style.display = 'none';
-                userListElements.style.opacity = '0';
-            })
+
+        for (let index = 0; index < userListElements.children.length; index++) {
+            const elemLI = userListElements.children[index];
+            //get attr. data-caption from LI elem.
+            if ( elemLI.getAttribute('data-caption').toLowerCase().indexOf(searchUserInput.value.toLowerCase()) < 0 ) {
+                elemLI.style.display = 'none';
+            }else{
+              
+                elemLI.style.display = 'block';
+                //bei aauswählen Namen in Inputfeld | zeigen  Liste ausblenden! 
+                elemLI.addEventListener('click', e => {
+                    searchUserInput.setAttribute('value', e.target.innerText);
+                    searchUserInput.value = e.target.innerText;
+                    userListElements.style.display = 'none';
+                    userListElements.style.opacity = '0';
+                })
+            }
+                 
         }
+    }else{
+        userListElements.style.display = 'none';
+        userListElements.style.opacity = '0';
     }
- 
+    
 });
 /* ============================================= */
 /*      Validate Contact Form               */
@@ -231,33 +241,68 @@ function saveSettingValue(str){
     localStorage.setItem('settingValues', JSON.stringify(settingsValues) );
     return true;
 }
+//remove LS
 function removeSettings(){
     localStorage.removeItem('settingValues');
 }
 
+//save values in Local Storage
+const checkbox = document.querySelector('.mailSettings input');
+const checkboxProfil = document.querySelector('.profilSettings input');
+const selectTimeCity = document.getElementById('time');
 
-if(supportsLocalStorage()){
-    function save() {
-        var checkbox = document.querySelector('.mailSettings input');
-        var checkboxProfil = document.querySelector('.profilSettings input');
-        var selectTimeCity = document.getElementById('time');
-        if(checkbox.checked){
-            localStorage.setItem("checkbox1", checkbox.checked);
-        }else{
-            localStorage.removeItem("checkbox1", checkbox.checked);
-        }
-        if(checkboxProfil.checked){
-            localStorage.setItem("checkbox2", checkboxProfil.checked);
-        }else{
-            localStorage.removeItem('checkbox2', checkboxProfil.checked);   
-        }
-        if(selectTimeCity.value != 'null'){
-            localStorage.setItem('selectOptions', selectTimeCity.value);
-        }else{
-            localStorage.removeItem('selectOptions', selectTimeCity.value);   
-        }
+function save() {
+   
+    if(checkbox.checked){
+        localStorage.setItem("checkbox1", checkbox.checked);
+    }else{
+        localStorage.removeItem("checkbox1", checkbox.checked);
     }
-        //for loading.
+    if(checkboxProfil.checked){
+        localStorage.setItem("checkbox2", checkboxProfil.checked);
+    }else{
+        localStorage.removeItem('checkbox2', checkboxProfil.checked);   
+    }
+    if(selectTimeCity.value != 'null'){
+        localStorage.setItem('selectOptions', selectTimeCity.value);
+    }else{
+        localStorage.removeItem('selectOptions', selectTimeCity.value);   
+    }
+}
+//reset setting values when clicked cancel btn.
+function reset(){
+    localStorage.removeItem("checkbox1", checkbox.checked);
+    localStorage.removeItem('checkbox2', checkboxProfil.checked);   
+    localStorage.removeItem('selectOptions', selectTimeCity.value);
+    document.querySelector('.mailSettings input').checked = false;
+    document.querySelector('.profilSettings input').checked = false;
+    document.querySelector('#time').value = 'null';
+}
+
+//if localstorage is supported
+if(supportsLocalStorage()){
+
+    const saveSettings = document.getElementById('save');
+    const resetSettings = document.getElementById('cancel'); 
+
+    resetSettings.addEventListener('click', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        reset();
+        
+        console.log('cancel');
+      
+    })
+    saveSettings.addEventListener('click', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        save();
+        console.log('save');
+      
+    })
+
+   
+        //get saved values from local storage and display to the settings form.
         var checked = JSON.parse(localStorage.getItem("checkbox1"));
         var checked1 = JSON.parse(localStorage.getItem("checkbox2"));
         var saveTimeValue = localStorage.getItem("selectOptions");
@@ -265,11 +310,7 @@ if(supportsLocalStorage()){
         document.querySelector('.mailSettings input').checked = checked;
         document.querySelector('.profilSettings input').checked = checked1;
         document.querySelector('#time').value = saveTimeValue;
-        
-    // get checkboxes
 
-// get select List
-// Function - submit eventListener for submit Btn
-// Function -click eventListener for reset Btn
+      
 
 }

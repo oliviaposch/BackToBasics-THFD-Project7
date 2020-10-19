@@ -39,14 +39,14 @@ select{
     }
 } 
 
-.btn{
-    &[type="submit"]{
+#save{
         background-color: $color-purple-light;
     } 
-    &[type="cancel"]{
+
+#cancel{
         background-color: $color-text-primary-light;
     }
-}
+
 #contactForm-msg {
     padding: .7em;
     margin-bottom: 10px;
@@ -72,20 +72,20 @@ select{
     }
 }
 #settingsForm {
-    .btn{
-        &[type="submit"],
-        &[type="cancel"] {
-        width: 100%;
-        @include mq('lg'){
-            width: 45%; 
-        }
-        &:first-of-type{
-            margin-bottom: 25px;
+    button{
+        &#save,
+        &#cancel {
+            width: 100%;
             @include mq('lg'){
-                margin-right: 9%;
-                margin-bottom: 0;
+                width: 45%; 
             }
-        }
+            &:first-of-type{
+                margin-bottom: 25px;
+                @include mq('lg'){
+                    margin-right: 9%;
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

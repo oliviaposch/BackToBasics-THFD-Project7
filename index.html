@@ -149,9 +149,8 @@
                             <form id="kontaktForm" action="index.html" method="POST">
                                 <!-- autocomplete function / simulate send message & show confirmation msg. -->
                                 <div id="searchBox">
-                                    <input type="text" id="search_user" name="search_user" value="" placeholder="User Name">
+                                    <input type="text" id="search_user" name="search_user" value="" placeholder="User Name" autocomplete="off">
                                     <ul id="searchUserList" class="search-user-list">
-                                        
                                     </ul>
                                 </div>
                                 
@@ -162,7 +161,7 @@
                         </div>
                         <div>
                             <h2>Settings</h2>
-                            <form id="settingsForm" action="index.html" method="POST">
+                            <form id="settingsForm" action="" method="">
                                 <label class=" mailSettings switch-light switch-ios">
                                     <input type="checkbox">
                                     <p>Send Email notifications</p>
@@ -187,8 +186,8 @@
                                     <option value="USA">USA</option>
                                     <option value="Switzerland">Switzerland</option>
                                 </select>
-                                <button class="btn" type="submit" onClick="save()">save</button>
-                                <button class="btn" type="cancel">cancel</button>
+                                <button class="btn" id="save" type="" >save</button>
+                                <button class="btn" id="cancel" type="">cancel</button>
                             </form>
     
                         </div>

@@ -820,9 +820,10 @@ select {
   select:focus {
     outline-color: #7377bf; }
 
-.btn[type="submit"] {
+#save {
   background-color: #7377bf; }
-.btn[type="cancel"] {
+
+#cancel {
   background-color: #d1d1d1; }
 
 #contactForm-msg {
@@ -842,15 +843,15 @@ select {
 #kontaktForm .btn[type="submit"] {
   width: 100%; }
 
-#settingsForm .btn[type="submit"], #settingsForm .btn[type="cancel"] {
+#settingsForm button#save, #settingsForm button#cancel {
   width: 100%; }
   @media (min-width: 992px) {
-    #settingsForm .btn[type="submit"], #settingsForm .btn[type="cancel"] {
+    #settingsForm button#save, #settingsForm button#cancel {
       width: 45%; } }
-  #settingsForm .btn[type="submit"]:first-of-type, #settingsForm .btn[type="cancel"]:first-of-type {
+  #settingsForm button#save:first-of-type, #settingsForm button#cancel:first-of-type {
     margin-bottom: 25px; }
     @media (min-width: 992px) {
-      #settingsForm .btn[type="submit"]:first-of-type, #settingsForm .btn[type="cancel"]:first-of-type {
+      #settingsForm button#save:first-of-type, #settingsForm button#cancel:first-of-type {
         margin-right: 9%;
         margin-bottom: 0; } }
 
