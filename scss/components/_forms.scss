@@ -41,10 +41,16 @@ select{
 
 #save{
         background-color: $color-purple-light;
+        &:hover {
+            background: rgba(119, 123, 196, 0.9);
+        }
     } 
 
 #cancel{
         background-color: $color-text-primary-light;
+        &:hover {
+            background: rgba(182, 180, 180, 0.8);
+        }
     }
 
 #contactForm-msg {
@@ -68,8 +74,11 @@ select{
 }
 #kontaktForm {
     .btn[type="submit"]{
-    width: 100%;
-    background: $color-purple-light;
+        width: 100%;
+        background: $color-purple-light;
+        &:hover {
+            background: rgba(119, 123, 196, 0.9);
+        }
     }
 }
 #settingsForm {

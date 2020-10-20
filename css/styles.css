@@ -822,9 +822,13 @@ select {
 
 #save {
   background-color: #7377bf; }
+  #save:hover {
+    background: rgba(119, 123, 196, 0.9); }
 
 #cancel {
   background-color: #d1d1d1; }
+  #cancel:hover {
+    background: rgba(182, 180, 180, 0.8); }
 
 #contactForm-msg {
   padding: .7em;
@@ -843,6 +847,8 @@ select {
 #kontaktForm .btn[type="submit"] {
   width: 100%;
   background: #7377bf; }
+  #kontaktForm .btn[type="submit"]:hover {
+    background: rgba(119, 123, 196, 0.9); }
 
 #settingsForm button#save, #settingsForm button#cancel {
   width: 100%; }
