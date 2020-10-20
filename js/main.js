@@ -96,7 +96,7 @@ alertMsgBtn.addEventListener("click", e => {
 /* ============================================= */
 
 //current height from ul list 
-const currentHeightUl = Math.floor(alertMsgTopHeader.children[1].offsetHeight * alertMsgTopHeader.children.length);
+const currentHeightUl = Math.floor((alertMsgTopHeader.children[2].offsetHeight * alertMsgTopHeader.children.length) + 8);
 if(alertMsgTopHeader.children.length >= 1){
     // if notifications true
     bellNotifications.classList.add('notifications__green');
@@ -109,7 +109,7 @@ for (let i = 0; i < alertMsgTopHeader.children.length; i++) {
     alertMsgTopHeader.children[i].style.display = 'none';
 }
 bellNotifications.addEventListener('click', e => {   
-    if(e.target.tagName === 'svg' && bellNotifications.classList.contains('notifications__green') ){ 
+    if(bellNotifications.classList.contains('notifications__green') ){ 
         for (let i = 0; i < alertMsgTopHeader.children.length; i++) {
             alertMsgTopHeader.children[i].style.display = 'block';
             setTimeout(function(){

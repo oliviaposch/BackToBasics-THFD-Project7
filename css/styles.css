@@ -841,7 +841,8 @@ select {
     border-color: #c3e6cb; }
 
 #kontaktForm .btn[type="submit"] {
-  width: 100%; }
+  width: 100%;
+  background: #7377bf; }
 
 #settingsForm button#save, #settingsForm button#cancel {
   width: 100%; }
